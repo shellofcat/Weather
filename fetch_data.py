@@ -69,25 +69,27 @@ def fetch_bom(label, url):
             pass
     return out
 
-def ww_find_location(lat, lon):
+def ww_search_id(query_text):
     if not WW_KEY:
         return None
     try:
-        url = f"https://api.willyweather.com.au/v2/{WW_KEY}/search.json?lat={lat}&lng={lon}&range=20&units=distance:km"
+        url = f"https://api.willyweather.com.au/v2/{WW_KEY}/search.json?query={requests.utils.quote(query_text)}&limit=5"
         r = requests.get(url, headers=HEADERS, timeout=10)
         if r.ok:
-            data = r.json()
-            if isinstance(data, dict) and data.get("location"):
-                return data["location"].get("id")
-            if isinstance(data, list) and data:
-                return data[0].get("id")
+            results = r.json()
+            if isinstance(results, list):
+                for item in results:
+                    if item.get("state") == "NSW":
+                        return item.get("id")
+                if results:
+                    return results[0].get("id")
     except Exception:
         pass
     return None
 
-def fetch_ww_swell(label, lat, lon):
+def fetch_ww_swell(label, query_name):
     out = {"name": label, "hs_m": "--", "hmax_m": "--", "tp_s": "--", "dir_deg": "--", "dir_cardinal": "--"}
-    loc_id = ww_find_location(lat, lon)
+    loc_id = ww_search_id(query_name)
     if not loc_id:
         return out
     try:
@@ -106,141 +108,10 @@ def fetch_ww_swell(label, lat, lon):
             return out
 
         now_naive = datetime.now(TZ).replace(tzinfo=None)
-        best = entries[0]
-        min_diff = 999999
-        for e in entries:
-            dt = datetime.strptime(e["dateTime"], "%Y-%m-%d %H:%M:%S")
-            diff = abs((dt - now_naive).total_seconds())
-            if diff < min_diff:
-                min_diff = diff
-                best = e
+        best = min(
+            entries,
+            key=lambda e: abs((datetime.strptime(e["dateTime"], "%Y-%m-%d %H:%M:%S") - now_naive).total_seconds())
+        )
 
         hs = best.get("height")
         tp = best.get("period")
-        dr = best.get("direction")
-        card = best.get("directionText") or compass(dr)
-        deg = int(round(float(dr))) % 360 if dr is not None else "--"
-        hmax = float(hs) * 1.67 if hs is not None else None
-
-        return {
-            "name": label,
-            "hs_m": fnum(hs, 2),
-            "hmax_m": fnum(hmax, 2),
-            "tp_s": fnum(tp, 1),
-            "dir_deg": deg,
-            "dir_cardinal": str(card).upper() if card else compass(deg),
-        }
-    except Exception:
-        return out
-
-def fetch_ww_tides():
-    default_out = {
-        "sydney_live_m": "--",
-        "botany_live_m": "--",
-        "events": [
-            {"type": "H", "time": "--", "height_m": "--"},
-            {"type": "L", "time": "--", "height_m": "--"},
-            {"type": "H", "time": "--", "height_m": "--"},
-        ],
-    }
-    # Fort Denison coordinates
-    loc_id = ww_find_location(-33.8547, 151.2253)
-    if not loc_id:
-        return default_out
-    try:
-        url = (
-            f"https://api.willyweather.com.au/v2/{WW_KEY}/locations/{loc_id}/weather.json"
-            f"?forecasts=tides&days=2&units=height:m"
-        )
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        if not r.ok:
-            return default_out
-        days = r.json().get("forecasts", {}).get("tides", {}).get("days", [])
-        all_entries = []
-        for d in days:
-            for e in d.get("entries", []):
-                dt = datetime.strptime(e["dateTime"], "%Y-%m-%d %H:%M:%S")
-                all_entries.append({
-                    "dt": dt,
-                    "type": "H" if e.get("type") == "high" else "L",
-                    "height": float(e["height"]),
-                })
-
-        now_naive = datetime.now(TZ).replace(tzinfo=None)
-        upcoming = [e for e in all_entries if e["dt"] >= now_naive - timedelta(minutes=15)]
-
-        # Cosine-interpolate current live tide height between surrounding high & low
-        live_str = "--"
-        past = [e for e in all_entries if e["dt"] <= now_naive]
-        future = [e for e in all_entries if e["dt"] > now_naive]
-        if past and future:
-            t0, h0 = past[-1]["dt"], past[-1]["height"]
-            t1, h1 = future[0]["dt"], future[0]["height"]
-            span = (t1 - t0).total_seconds()
-            if span > 0:
-                frac = (now_naive - t0).total_seconds() / span
-                cur_h = h0 + (h1 - h0) * (1 - math.cos(math.pi * frac)) / 2
-                live_str = f"{cur_h:.2f}"
-
-        events = [
-            {
-                "type": e["type"],
-                "time": e["dt"].strftime("%-I:%M%p").lower(),
-                "height_m": f"{e['height']:.2f}",
-            }
-            for e in upcoming[:3]
-        ]
-
-        return {
-            "sydney_live_m": live_str,
-            "botany_live_m": live_str,
-            "events": events if events else default_out["events"],
-        }
-    except Exception:
-        return default_out
-
-def main():
-    now = datetime.now(TZ)
-
-    syd_winds = [
-        fetch_bom(*BOM_STATIONS["wedding_cake"]),
-        fetch_bom(*BOM_STATIONS["fort_denison"]),
-        fetch_bom(*BOM_STATIONS["north_head"]),
-        fetch_bom(*BOM_STATIONS["obs_hill"]),
-    ]
-
-    bot_winds = [
-        fetch_bom(*BOM_STATIONS["kurnell"]),
-        fetch_bom(*BOM_STATIONS["syd_airport"]),
-        fetch_bom(*BOM_STATIONS["wattamolla"]),
-        fetch_bom(*BOM_STATIONS["bellambi"]),
-    ]
-
-    syd_swell = fetch_ww_swell("Sydney Offshore (Long Reef)", -33.745, 151.345)
-    bot_swell = fetch_ww_swell("Botany Offshore", -34.015, 151.255)
-    tides = fetch_ww_tides()
-
-    payload = {
-        "updated_iso": now.isoformat(),
-        "updated_display": now.strftime("%-d %b %Y · %-I:%M %p %Z"),
-        "timezone": now.tzname() or "AEDT",
-        "tides": tides,
-        "sydney": {
-            "title": "SYDNEY HARBOUR",
-            "subtitle": "Port Jackson · 4 Stations",
-            "winds": syd_winds,
-            "swell": syd_swell,
-        },
-        "botany": {
-            "title": "BOTANY BAY",
-            "subtitle": "Port Botany · 4 Stations",
-            "winds": bot_winds,
-            "swell": bot_swell,
-        },
-    }
-
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=2)
-
-if __name__ == "__main__":
-    main()
