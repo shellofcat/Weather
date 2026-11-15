@@ -1,6 +1,6 @@
 {
-  "updated_iso": "2026-11-15T23:21:07.417314+11:00",
-  "updated_display": "15 Nov 2026 \u00b7 11:21 PM AEDT",
+  "updated_iso": "2026-11-15T23:25:43.947357+11:00",
+  "updated_display": "15 Nov 2026 \u00b7 11:25 PM AEDT",
   "timezone": "AEDT",
   "tides": {
     "sydney_live_m": "--",
@@ -78,8 +78,8 @@
       },
       {
         "name": "Airport Runway",
-        "speed_kts": "13.0",
-        "gust_kts": "18.0",
+        "speed_kts": "15.0",
+        "gust_kts": "20.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       },
