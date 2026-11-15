@@ -1,4 +1,4 @@
-8name: Update Marine Conditions JSON
+name: Update Marine Conditions JSON
 
 on:
   schedule:
