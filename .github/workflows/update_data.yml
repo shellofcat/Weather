@@ -26,6 +26,8 @@ jobs:
         run: pip install --disable-pip-version-check --quiet requests urllib3
 
       - name: Fetch latest sensor data
+        env:
+          WILLYWEATHER_API_KEY: ${{ secrets.WILLYWEATHER_API_KEY }}
         run: python fetch_data.py
 
       - name: Commit data.json if changed
