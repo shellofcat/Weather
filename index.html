@@ -148,4 +148,316 @@
     .waterway-col {
       display: flex;
       flex-direction: column;
-      background
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 5px 6px;
+      gap: 4px;
+      min-height: 0;
+    }
+
+    .col-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2px;
+      flex-shrink: 0;
+    }
+
+    .col-title {
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+
+    .col-unit {
+      font-size: 0.58rem;
+      color: var(--dim);
+      text-transform: uppercase;
+    }
+
+    /* 2x2 Micro Wind Grid per Column */
+    .wind-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .wind-cell {
+      background: var(--card-sub);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+    }
+
+    .st-name {
+      font-size: 0.60rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .st-mid {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2px;
+    }
+
+    .st-spd {
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1.05;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .st-gust {
+      font-size: 0.60rem;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .st-dir {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.60rem;
+      font-weight: 600;
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .dir-arrow {
+      width: 9px;
+      height: 9px;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    /* Wind Speed Colors */
+    .spd-calm { color: #f1f5f9; }
+    .spd-fresh { color: var(--cyan); }
+    .spd-mod { color: var(--amber); }
+    .spd-strong { color: var(--orange); }
+    .spd-gale { color: var(--red); }
+
+    /* Compact Offshore Swell Footer per Column */
+    .swell-bar {
+      background: #101822;
+      border: 1px solid var(--border-hi);
+      border-radius: 6px;
+      padding: 4px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .swell-dir-grp {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .swell-tag {
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--cyan);
+      text-transform: uppercase;
+    }
+
+    .swell-nums {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .swell-nums span small {
+      font-size: 0.54rem;
+      font-weight: 500;
+      color: var(--muted);
+      display: block;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-shell">
+    <!-- Top Status & Tide Bar -->
+    <div class="top-bar">
+      <div class="status-group">
+        <span id="statusDot" class="status-dot"></span>
+        <span id="updatedText" class="updated-time">--</span>
+      </div>
+      <div class="tide-row" id="tideRow">
+        <span class="tide-live" id="tideLive">--m</span>
+        <span id="tideEvents"></span>
+      </div>
+      <button id="refreshBtn" class="refresh-btn" aria-label="Refresh">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12a9 9 0 1 1-2.64-6.36"/>
+          <polyline points="21 3 21 9 15 9"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Side-by-Side Harbour & Bay Columns -->
+    <div class="columns">
+      <!-- Left: Sydney Harbour -->
+      <div class="waterway-col">
+        <div class="col-header">
+          <span class="col-title">Sydney Harbour</span>
+          <span class="col-unit">kts</span>
+        </div>
+        <div class="wind-grid" id="sydWindGrid"></div>
+        <div class="swell-bar" id="sydSwellBar"></div>
+      </div>
+
+      <!-- Right: Botany Bay -->
+      <div class="waterway-col">
+        <div class="col-header">
+          <span class="col-title">Botany Bay</span>
+          <span class="col-unit">kts</span>
+        </div>
+        <div class="wind-grid" id="botWindGrid"></div>
+        <div class="swell-bar" id="botSwellBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function speedClass(ktsStr) {
+      const v = parseFloat(ktsStr);
+      if (isNaN(v)) return "spd-calm";
+      if (v >= 25) return "spd-gale";
+      if (v >= 18) return "spd-strong";
+      if (v >= 12) return "spd-mod";
+      if (v >= 7) return "spd-fresh";
+      return "spd-calm";
+    }
+
+    function renderArrow(degVal) {
+      const deg = parseFloat(degVal);
+      if (isNaN(deg)) return "";
+      const rot = (deg + 180) % 360;
+      return `<svg class="dir-arrow" style="transform:rotate(${rot}deg)" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L19 21L12 17L5 21L12 2Z"/></svg>`;
+    }
+
+    function shortStationName(name) {
+      return name
+        .replace("W Wedding Cake", "Wedding Cake")
+        .replace("Observatory Hill", "Obs Hill")
+        .replace("Kurnell (Botany)", "Kurnell")
+        .replace("Airport Runway", "Airport")
+        .replace("Bellambi Point", "Bellambi");
+    }
+
+    function renderWindGrid(id, stations) {
+      const el = document.getElementById(id);
+      el.innerHTML = (stations || []).map(st => {
+        const cls = speedClass(st.speed_kts);
+        const degTxt = st.dir_deg !== "--" ? `${st.dir_deg}°` : "";
+        return `
+          <div class="wind-cell">
+            <div class="st-name">${shortStationName(st.name)}</div>
+            <div class="st-mid">
+              <span class="st-spd ${cls}">${st.speed_kts}</span>
+              <span class="st-gust">G${st.gust_kts}</span>
+            </div>
+            <div class="st-dir">
+              ${renderArrow(st.dir_deg)}
+              <span>${st.dir_cardinal} ${degTxt}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderSwell(id, swell) {
+      const el = document.getElementById(id);
+      if (!swell) return;
+      const degTxt = swell.dir_deg !== "--" ? `${swell.dir_deg}°` : "";
+      el.innerHTML = `
+        <div class="swell-dir-grp">
+          <span class="swell-tag">Offshore</span>
+          <span class="st-dir">${renderArrow(swell.dir_deg)}<span>${swell.dir_cardinal} ${degTxt}</span></span>
+        </div>
+        <div class="swell-nums">
+          <span><small>Hs</small>${swell.hs_m !== "--" ? swell.hs_m + "m" : "--"}</span>
+          <span><small>Max</small>${swell.hmax_m !== "--" ? swell.hmax_m + "m" : "--"}</span>
+          <span><small>Tp</small>${swell.tp_s !== "--" ? swell.tp_s + "s" : "--"}</span>
+        </div>
+      `;
+    }
+
+    function renderTides(tides) {
+      if (!tides) return;
+      const live = tides.sydney_live_m && tides.sydney_live_m !== "--" ? `${tides.sydney_live_m}m` : "--";
+      document.getElementById("tideLive").textContent = live;
+
+      const evs = (tides.events || []).slice(0, 2);
+      document.getElementById("tideEvents").innerHTML = evs.map(e => {
+        const arrow = e.type === "H" ? `<span class="tide-up">▲</span>` : `<span class="tide-dn">▼</span>`;
+        const ht = e.height_m !== "--" ? ` ${e.height_m}m` : "";
+        return `<span class="tide-ev">${arrow}${e.time}${ht}</span>`;
+      }).join(" ");
+    }
+
+    async function loadData() {
+      const btn = document.getElementById("refreshBtn");
+      btn.classList.add("spinning");
+      try {
+        const res = await fetch(`./data.json?t=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+
+        const dot = document.getElementById("statusDot");
+        if (data.updated_iso) {
+          const ageMins = (Date.now() - new Date(data.updated_iso).getTime()) / 60000;
+          dot.classList.toggle("stale", ageMins > 30);
+          const dt = new Date(data.updated_iso);
+          document.getElementById("updatedText").textContent = dt.toLocaleTimeString("en-AU", {
+            timeZone: "Australia/Sydney",
+            hour: "numeric",
+            minute: "2-digit"
+          });
+        }
+
+        renderTides(data.tides);
+        if (data.sydney) {
+          renderWindGrid("sydWindGrid", data.sydney.winds);
+          renderSwell("sydSwellBar", data.sydney.swell);
+        }
+        if (data.botany) {
+          renderWindGrid("botWindGrid", data.botany.winds);
+          renderSwell("botSwellBar", data.botany.swell);
+        }
+      } catch (e) {
+        document.getElementById("updatedText").textContent = "Offline";
+        document.getElementById("statusDot").classList.add("stale");
+      } finally {
+        setTimeout(() => btn.classList.remove("spinning"), 250);
+      }
+    }
+
+    document.getElementById("refreshBtn").addEventListener("click", loadData);
+    loadData();
+  </script>
+</body>
+</html>
