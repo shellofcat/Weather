@@ -1,131 +1,105 @@
-#!/usr/bin/env python3
-"""
-fetch_data.py
-Lightweight direct-API marine conditions fetcher for Sydney Harbour & Botany Bay.
-"""
-
-import json
-import re
+import json, re
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 
-SYDNEY_TZ = ZoneInfo("Australia/Sydney")
-TIMEOUT_SECONDS = 10
-
-PANSW_BASE = "https://webservices.portauthoritynsw.com.au/api"
-CANDIDATE_URLS = {
-    "wind_all": f"{PANSW_BASE}/EnvironmentWind",
-    "wind_syd": f"{PANSW_BASE}/EnvironmentWind?Code=SYD",
-    "wind_bot": f"{PANSW_BASE}/EnvironmentWind?Code=BOT",
-    "wave_all": f"{PANSW_BASE}/EnvironmentWave",
-    "wave_syd": f"{PANSW_BASE}/EnvironmentWave?Code=SYD",
-    "wave_bot": f"{PANSW_BASE}/EnvironmentWave?Code=BOT",
-    "tide_all": f"{PANSW_BASE}/EnvironmentTide",
-    "tide_syd": f"{PANSW_BASE}/EnvironmentTide?Code=SYD",
-    "tide_bot": f"{PANSW_BASE}/EnvironmentTide?Code=BOT",
-    "summary_syd": f"{PANSW_BASE}/EnvironmentWeatherSummary/SYD",
-    "summary_bot": f"{PANSW_BASE}/EnvironmentWeatherSummary/BOT",
+TZ = ZoneInfo("Australia/Sydney")
+BASE = "https://webservices.portauthoritynsw.com.au/api"
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Referer": "https://wavewindtide.portauthoritynsw.com.au/",
 }
 
-MHL_SYDDOW_URLS = [
-    "https://www.mhl.nsw.gov.au/Station-SYDDOW",
-    "https://www.mhl.nsw.gov.au/Data-Wave",
-]
+URLS = {
+    "wind_all": f"{BASE}/EnvironmentWind",
+    "wind_syd": f"{BASE}/EnvironmentWind?Code=SYD",
+    "wind_bot": f"{BASE}/EnvironmentWind?Code=BOT",
+    "wave_all": f"{BASE}/EnvironmentWave",
+    "wave_syd": f"{BASE}/EnvironmentWave?Code=SYD",
+    "wave_bot": f"{BASE}/EnvironmentWave?Code=BOT",
+    "tide_all": f"{BASE}/EnvironmentTide",
+    "tide_syd": f"{BASE}/EnvironmentTide?Code=SYD",
+    "summary_syd": f"{BASE}/EnvironmentWeatherSummary/SYD",
+    "summary_bot": f"{BASE}/EnvironmentWeatherSummary/BOT",
+}
 
-
-def create_session() -> requests.Session:
-    session = requests.Session()
-    retry = Retry(
-        total=3,
-        read=3,
-        connect=3,
-        backoff_factor=1.0,
-        status_forcelist=(429, 500, 502, 503, 504),
-        allowed_methods=frozenset(["GET"]),
-    )
-    adapter = HTTPAdapter(max_retries=retry)
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-    session.headers.update({
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-        "Accept": "application/json, text/plain, */*",
-        "Referer": "https://wavewindtide.portauthoritynsw.com.au/",
-        "Origin": "https://wavewindtide.portauthoritynsw.com.au",
-    })
-    return session
-
-
-def fetch_probe(session: requests.Session, url: str, debug_log: dict, key: str):
-    try:
-        resp = session.get(url, timeout=TIMEOUT_SECONDS)
-        snippet = resp.text[:400].replace("\n", " ")
-        debug_log[key] = {"status": resp.status_code, "sample": snippet}
-        if resp.ok:
-            return resp.json()
-    except Exception as exc:
-        debug_log[key] = {"error": str(exc)}
+def probe(url, dbg, key):
+    for _ in range(3):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=10)
+            dbg[key] = {"status": r.status_code, "sample": r.text[:350].replace("\n", " ")}
+            if r.ok:
+                return r.json()
+            break
+        except Exception as e:
+            dbg[key] = {"error": str(e)}
     return None
 
-
-def deg_to_compass(deg_val) -> str:
+def compass(deg):
     try:
-        deg = float(deg_val) % 360
-        dirs = [
-            "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
-            "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"
-        ]
-        return dirs[int((deg + 11.25) // 22.5) % 16]
-    except (ValueError, TypeError):
+        d = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+        return d[int((float(deg) % 360 + 11.25) // 22.5) % 16]
+    except Exception:
         return "--"
 
-
-def fmt_num(val, decimals=1) -> str:
-    if val is None or val == "" or val == "--":
-        return "--"
+def fnum(v, n=1):
     try:
-        return f"{float(val):.{decimals}f}"
-    except (ValueError, TypeError):
+        return f"{float(v):.{n}f}" if v not in (None, "", "--") else "--"
+    except Exception:
         return "--"
 
-
-def fmt_deg(val):
-    if val is None or val == "" or val == "--":
-        return "--"
+def fdeg(v):
     try:
-        return int(round(float(val))) % 360
-    except (ValueError, TypeError):
+        return int(round(float(v))) % 360 if v not in (None, "", "--") else "--"
+    except Exception:
         return "--"
 
-
-def get_first_key(item: dict, keys: list, default=None):
+def gkey(item, keys):
     if not isinstance(item, dict):
-        return default
-    lower_map = {k.lower(): v for k, v in item.items()}
+        return None
+    lm = {k.lower(): v for k, v in item.items()}
     for k in keys:
-        if k in item and item[k] is not None:
+        if item.get(k) is not None:
             return item[k]
-        if k.lower() in lower_map and lower_map[k.lower()] is not None:
-            return lower_map[k.lower()]
-    return default
+        if lm.get(k.lower()) is not None:
+            return lm[k.lower()]
+    return None
 
-
-def normalize_list(payload) -> list:
-    if isinstance(payload, list):
-        return payload
-    if isinstance(payload, dict):
-        for key in ("data", "Data", "Items", "items", "Result", "results", "Wind", "Winds", "Wave", "Waves", "Tide", "Tides"):
-            if isinstance(payload.get(key), list):
-                return payload[key]
-        return [payload]
+def nlist(p):
+    if isinstance(p, list):
+        return p
+    if isinstance(p, dict):
+        for k in ("data","Data","Items","items","Result","results","Wind","Winds","Wave","Waves","Tide","Tides"):
+            if isinstance(p.get(k), list):
+                return p[k]
+        return [p]
     return []
 
+def get_wind(recs, label, terms):
+    out = {"name": label, "speed_kts": "--", "gust_kts": "--", "dir_deg": "--", "dir_cardinal": "--", "updated": "--"}
+    for r in recs:
+        if not isinstance(r, dict):
+            continue
+        txt = " ".join(str(v) for k, v in r.items() if any(x in k.lower() for x in ("loc","name","site","station","code","title","desc"))).lower()
+        if any(t in txt for t in terms):
+            spd = gkey(r, ["WindSpeed","AverageWindSpeed","Speed","AvgSpeed","WindSpeedKnots","SpeedKnots","Value","Knots"])
+            gst = gkey(r, ["WindGust","GustSpeed","Gust","MaxWindSpeed","WindGustKnots","GustKnots","MaxGust"])
+            deg = gkey(r, ["WindDirection","Direction","DirDegrees","WindDirectionDegrees","Bearing","Dir"])
+            card = gkey(r, ["WindDirectionCardinal","CardinalDirection","CompassDirection","DirectionCardinal","Cardinal"])
+            d_clean = fdeg(deg)
+            c_clean = str(card).strip().upper() if card and str(card).strip().isalpha() else compass(d_clean)
+            return {
+                "name": label,
+                "speed_kts": fnum(spd, 1),
+                "gust_kts": fnum(gst, 1),
+                "dir_deg": d_clean,
+                "dir_cardinal": c_clean if c_clean != "--" else compass(d_clean),
+                "updated": str(gkey(r, ["DateTime","Timestamp","LastUpdate","DataDate"]) or "--"),
+            }
+    return out
 
-def extract_wind_station(records: list, label: str, match_terms: list) -> dict:
-    fallback = {
-        "name": label,
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg
+def get_mhl(dbg):
+    for u in ("https://www.mhl.nsw.gov.au/Station-SYDDOW", "https://www.mhl.nsw.gov.au/Data-Wave"):
+        try:
+            r = requests.get
