@@ -1,6 +1,6 @@
 {
-  "updated_iso": "2026-11-15T22:56:03.400777+11:00",
-  "updated_display": "15 Nov 2026 \u00b7 10:56 PM AEDT",
+  "updated_iso": "2026-11-15T23:04:28.237605+11:00",
+  "updated_display": "15 Nov 2026 \u00b7 11:04 PM AEDT",
   "timezone": "AEDT",
   "tides": {
     "sydney_live_m": "--",
@@ -20,11 +20,6 @@
         "type": "H",
         "time": "--",
         "height_m": "--"
-      },
-      {
-        "type": "L",
-        "time": "--",
-        "height_m": "--"
       }
     ]
   },
@@ -37,32 +32,28 @@
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       },
       {
         "name": "Fort Denison",
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       },
       {
         "name": "Manns Point",
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       },
       {
         "name": "Glebe Island",
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       }
     ],
     "swell": {
@@ -71,8 +62,7 @@
       "hmax_m": "--",
       "tp_s": "--",
       "dir_deg": "--",
-      "dir_cardinal": "--",
-      "source": "--"
+      "dir_cardinal": "--"
     }
   },
   "botany": {
@@ -84,32 +74,28 @@
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       },
       {
         "name": "Ampol Wharf",
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       },
       {
         "name": "Airport Runway",
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       },
       {
-        "name": "Brotherson Dock",
+        "name": "Berry Island (Ref)",
         "speed_kts": "--",
         "gust_kts": "--",
         "dir_deg": "--",
-        "dir_cardinal": "--",
-        "updated": "--"
+        "dir_cardinal": "--"
       }
     ],
     "swell": {
@@ -118,8 +104,7 @@
       "hmax_m": "--",
       "tp_s": "--",
       "dir_deg": "--",
-      "dir_cardinal": "--",
-      "source": "--"
+      "dir_cardinal": "--"
     }
   }
 }
