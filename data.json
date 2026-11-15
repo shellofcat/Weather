@@ -1,110 +1,39 @@
 {
-  "updated_iso": "2026-11-15T23:04:28.237605+11:00",
-  "updated_display": "15 Nov 2026 \u00b7 11:04 PM AEDT",
-  "timezone": "AEDT",
-  "tides": {
-    "sydney_live_m": "--",
-    "botany_live_m": "--",
-    "events": [
-      {
-        "type": "H",
-        "time": "--",
-        "height_m": "--"
-      },
-      {
-        "type": "L",
-        "time": "--",
-        "height_m": "--"
-      },
-      {
-        "type": "H",
-        "time": "--",
-        "height_m": "--"
-      }
-    ]
-  },
-  "sydney": {
-    "title": "SYDNEY HARBOUR",
-    "subtitle": "Port Jackson \u00b7 4 Stations",
-    "winds": [
-      {
-        "name": "W Wedding Cake",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      },
-      {
-        "name": "Fort Denison",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      },
-      {
-        "name": "Manns Point",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      },
-      {
-        "name": "Glebe Island",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      }
-    ],
-    "swell": {
-      "name": "Sydney Offshore (Long Reef)",
-      "hs_m": "--",
-      "hmax_m": "--",
-      "tp_s": "--",
-      "dir_deg": "--",
-      "dir_cardinal": "--"
-    }
-  },
-  "botany": {
-    "title": "BOTANY BAY",
-    "subtitle": "Port Botany \u00b7 4 Stations",
-    "winds": [
-      {
-        "name": "Molineaux Point",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      },
-      {
-        "name": "Ampol Wharf",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      },
-      {
-        "name": "Airport Runway",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      },
-      {
-        "name": "Berry Island (Ref)",
-        "speed_kts": "--",
-        "gust_kts": "--",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
-      }
-    ],
-    "swell": {
-      "name": "Botany Offshore",
-      "hs_m": "--",
-      "hmax_m": "--",
-      "tp_s": "--",
-      "dir_deg": "--",
-      "dir_cardinal": "--"
+  "updated_iso": "2026-11-15T23:09:43.188743+11:00",
+  "updated_display": "15 Nov 2026 \u00b7 11:09 PM AEDT",
+  "diag": {
+    "pansw_home": {
+      "error": "HTTPSConnectionPool(host='wavewindtide.portauthoritynsw.com.au', port=443): Read timed out. (read timeout=10)"
+    },
+    "pansw_api_wind": {
+      "status": 401,
+      "len": 61,
+      "sample": "{\"Message\":\"Authorization has been denied for this request.\"}"
+    },
+    "pansw_api_wave": {
+      "status": 401,
+      "len": 61,
+      "sample": "{\"Message\":\"Authorization has been denied for this request.\"}"
+    },
+    "pansw_api_tide": {
+      "status": 401,
+      "len": 61,
+      "sample": "{\"Message\":\"Authorization has been denied for this request.\"}"
+    },
+    "mhl_syddow": {
+      "status": 403,
+      "len": 1143,
+      "sample": "<html> <head> \t<title>MHL IP Restriction</title> \t<style>         body {font-family:Arial Sans-Serif;margin:0;overflow-x:hidden;overflow-y:auto;} \t</style>     <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\"> </h"
+    },
+    "mhl_botdow": {
+      "status": 403,
+      "len": 1143,
+      "sample": "<html> <head> \t<title>MHL IP Restriction</title> \t<style>         body {font-family:Arial Sans-Serif;margin:0;overflow-x:hidden;overflow-y:auto;} \t</style>     <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\"> </h"
+    },
+    "bom_syd_harbour": {
+      "status": 200,
+      "len": 128693,
+      "sample": "{ \t\"observations\": { \t\t\"notice\": [ \t\t\t{ \t\t\t\t\"copyright\": \"Copyright Commonwealth of Australia 2026, Bureau of Meteorology. For more information see: http://www.bom.gov.au/other/copyright.shtml http://www.bom.gov.au/other/disclaimer.shtml\", \t\t\t\t\"copyr"
     }
   }
 }
