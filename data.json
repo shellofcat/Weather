@@ -1,0 +1,125 @@
+{
+  "updated_iso": "2026-11-15T22:56:03.400777+11:00",
+  "updated_display": "15 Nov 2026 \u00b7 10:56 PM AEDT",
+  "timezone": "AEDT",
+  "tides": {
+    "sydney_live_m": "--",
+    "botany_live_m": "--",
+    "events": [
+      {
+        "type": "H",
+        "time": "--",
+        "height_m": "--"
+      },
+      {
+        "type": "L",
+        "time": "--",
+        "height_m": "--"
+      },
+      {
+        "type": "H",
+        "time": "--",
+        "height_m": "--"
+      },
+      {
+        "type": "L",
+        "time": "--",
+        "height_m": "--"
+      }
+    ]
+  },
+  "sydney": {
+    "title": "SYDNEY HARBOUR",
+    "subtitle": "Port Jackson \u00b7 4 Stations",
+    "winds": [
+      {
+        "name": "W Wedding Cake",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      },
+      {
+        "name": "Fort Denison",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      },
+      {
+        "name": "Manns Point",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      },
+      {
+        "name": "Glebe Island",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      }
+    ],
+    "swell": {
+      "name": "Sydney Offshore (Long Reef)",
+      "hs_m": "--",
+      "hmax_m": "--",
+      "tp_s": "--",
+      "dir_deg": "--",
+      "dir_cardinal": "--",
+      "source": "--"
+    }
+  },
+  "botany": {
+    "title": "BOTANY BAY",
+    "subtitle": "Port Botany \u00b7 4 Stations",
+    "winds": [
+      {
+        "name": "Molineaux Point",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      },
+      {
+        "name": "Ampol Wharf",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      },
+      {
+        "name": "Airport Runway",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      },
+      {
+        "name": "Brotherson Dock",
+        "speed_kts": "--",
+        "gust_kts": "--",
+        "dir_deg": "--",
+        "dir_cardinal": "--",
+        "updated": "--"
+      }
+    ],
+    "swell": {
+      "name": "Botany Offshore",
+      "hs_m": "--",
+      "hmax_m": "--",
+      "tp_s": "--",
+      "dir_deg": "--",
+      "dir_cardinal": "--",
+      "source": "--"
+    }
+  }
+}
