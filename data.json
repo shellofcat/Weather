@@ -1,20 +1,20 @@
 {
-  "updated_iso": "2026-11-16T01:29:23.573136+11:00",
-  "updated_display": "1:29 AM AEDT",
+  "updated_iso": "2026-11-16T02:16:25.825001+11:00",
+  "updated_display": "2:16 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "1.18",
-    "botany_live_m": "1.18",
+    "sydney_live_m": "1.16",
+    "botany_live_m": "1.16",
     "events": [
-      {
-        "type": "H",
-        "time": "1:00am",
-        "height_m": "1.18"
-      },
       {
         "type": "L",
         "time": "6:00am",
         "height_m": "0.85"
+      },
+      {
+        "type": "H",
+        "time": "1:00pm",
+        "height_m": "1.56"
       }
     ]
   },
@@ -23,39 +23,39 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "15.0",
-        "gust_kts": "20.0",
-        "dir_deg": 202,
-        "dir_cardinal": "SSW"
+        "speed_kts": "12.0",
+        "gust_kts": "17.0",
+        "dir_deg": 180,
+        "dir_cardinal": "S"
       },
       {
         "name": "Fort Denison",
-        "speed_kts": "8.0",
-        "gust_kts": "14.0",
-        "dir_deg": 180,
-        "dir_cardinal": "S"
+        "speed_kts": "4.0",
+        "gust_kts": "7.0",
+        "dir_deg": 248,
+        "dir_cardinal": "WSW"
       },
       {
         "name": "North Head",
-        "speed_kts": "15.0",
-        "gust_kts": "20.0",
-        "dir_deg": 180,
-        "dir_cardinal": "S"
+        "speed_kts": "12.0",
+        "gust_kts": "18.0",
+        "dir_deg": 158,
+        "dir_cardinal": "SSE"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "10.0",
-        "gust_kts": "10.0",
+        "speed_kts": "9.0",
+        "gust_kts": "9.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       }
     ],
     "swell": {
       "name": "Sydney Offshore (Long Reef)",
-      "hs_m": "1.08",
-      "hmax_m": "1.80",
+      "hs_m": "1.10",
+      "hmax_m": "1.84",
       "tp_s": "6.5",
-      "dir_deg": 137,
+      "dir_deg": 139,
       "dir_cardinal": "SE"
     }
   },
@@ -64,31 +64,31 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "14.0",
-        "gust_kts": "20.0",
-        "dir_deg": 180,
-        "dir_cardinal": "S"
+        "speed_kts": "16.0",
+        "gust_kts": "22.0",
+        "dir_deg": 202,
+        "dir_cardinal": "SSW"
       },
       {
         "name": "Airport",
-        "speed_kts": "15.0",
-        "gust_kts": "22.0",
+        "speed_kts": "19.0",
+        "gust_kts": "23.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       },
       {
         "name": "Wattamolla",
-        "speed_kts": "27.0",
-        "gust_kts": "30.0",
+        "speed_kts": "25.0",
+        "gust_kts": "31.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       },
       {
         "name": "Bellambi",
-        "speed_kts": "19.0",
-        "gust_kts": "23.0",
-        "dir_deg": 22,
-        "dir_cardinal": "NNE"
+        "speed_kts": "21.0",
+        "gust_kts": "26.0",
+        "dir_deg": 45,
+        "dir_cardinal": "NE"
       }
     ],
     "swell": {
