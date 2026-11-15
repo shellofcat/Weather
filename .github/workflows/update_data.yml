@@ -1,4 +1,4 @@
-name: Update Marine Conditions JSON
+8name: Update Marine Conditions JSON
 
 on:
   schedule:
@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet data.json; then
+          if [ -n "$(git status --porcelain data.json)" ]; then
             git add data.json
             git commit -m "chore(data): update marine observations [skip ci]"
             git push
