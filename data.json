@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-17T19:01:35.177540+11:00",
-  "updated_display": "7:01 PM AEDT",
+  "updated_iso": "2026-11-17T20:08:37.136405+11:00",
+  "updated_display": "8:08 PM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "0.69",
-    "botany_live_m": "0.69",
+    "sydney_live_m": "0.55",
+    "botany_live_m": "0.55",
     "events": [
       {
         "type": "L",
@@ -25,27 +25,27 @@
         "name": "W Wedding Cake",
         "speed_kts": "11.0",
         "gust_kts": "12.0",
-        "dir_deg": 68,
-        "dir_cardinal": "ENE"
+        "dir_deg": 45,
+        "dir_cardinal": "NE"
       },
       {
         "name": "Fort Denison",
-        "speed_kts": "7.0",
-        "gust_kts": "11.0",
-        "dir_deg": 90,
-        "dir_cardinal": "E"
+        "speed_kts": "5.0",
+        "gust_kts": "9.0",
+        "dir_deg": 68,
+        "dir_cardinal": "ENE"
       },
       {
         "name": "North Head",
         "speed_kts": "8.0",
-        "gust_kts": "12.0",
-        "dir_deg": 68,
-        "dir_cardinal": "ENE"
+        "gust_kts": "11.0",
+        "dir_deg": 45,
+        "dir_cardinal": "NE"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "11.0",
-        "gust_kts": "11.0",
+        "speed_kts": "7.0",
+        "gust_kts": "7.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       }
@@ -55,7 +55,7 @@
       "hs_m": "0.96",
       "hmax_m": "1.60",
       "tp_s": "7.7",
-      "dir_deg": 134,
+      "dir_deg": 133,
       "dir_cardinal": "SE"
     }
   },
@@ -64,31 +64,31 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "11.0",
-        "gust_kts": "14.0",
-        "dir_deg": 90,
-        "dir_cardinal": "E"
-      },
-      {
-        "name": "Airport",
-        "speed_kts": "12.0",
-        "gust_kts": "16.0",
+        "speed_kts": "9.0",
+        "gust_kts": "11.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       },
       {
-        "name": "Wattamolla",
+        "name": "Airport",
         "speed_kts": "7.0",
         "gust_kts": "11.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       },
       {
-        "name": "Bellambi",
-        "speed_kts": "7.0",
+        "name": "Wattamolla",
+        "speed_kts": "6.0",
         "gust_kts": "9.0",
         "dir_deg": 22,
         "dir_cardinal": "NNE"
+      },
+      {
+        "name": "Bellambi",
+        "speed_kts": "7.0",
+        "gust_kts": "9.0",
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       }
     ],
     "swell": {
