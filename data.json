@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-18T23:30:44.346522+11:00",
-  "updated_display": "11:30 PM AEDT",
+  "updated_iso": "2026-11-19T00:50:40.598950+11:00",
+  "updated_display": "12:50 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "0.57",
-    "botany_live_m": "0.57",
+    "sydney_live_m": "0.79",
+    "botany_live_m": "0.79",
     "events": [
       {
         "type": "H",
@@ -23,40 +23,40 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "13.0",
-        "gust_kts": "16.0",
+        "speed_kts": "14.0",
+        "gust_kts": "18.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       },
       {
         "name": "Fort Denison",
-        "speed_kts": "1.0",
-        "gust_kts": "5.0",
-        "dir_deg": 22,
-        "dir_cardinal": "NNE"
+        "speed_kts": "0.0",
+        "gust_kts": "0.0",
+        "dir_deg": "--",
+        "dir_cardinal": "--"
       },
       {
         "name": "North Head",
         "speed_kts": "10.0",
-        "gust_kts": "14.0",
+        "gust_kts": "15.0",
         "dir_deg": 22,
         "dir_cardinal": "NNE"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "6.0",
-        "gust_kts": "6.0",
+        "speed_kts": "7.0",
+        "gust_kts": "7.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       }
     ],
     "swell": {
       "name": "Sydney Offshore (Long Reef)",
-      "hs_m": "1.08",
-      "hmax_m": "1.80",
-      "tp_s": "7.4",
-      "dir_deg": 125,
-      "dir_cardinal": "SE"
+      "hs_m": "--",
+      "hmax_m": "--",
+      "tp_s": "--",
+      "dir_deg": "--",
+      "dir_cardinal": "--"
     }
   },
   "botany": {
@@ -64,40 +64,40 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "13.0",
-        "gust_kts": "15.0",
+        "speed_kts": "9.0",
+        "gust_kts": "12.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       },
       {
         "name": "Airport",
-        "speed_kts": "10.0",
-        "gust_kts": "14.0",
+        "speed_kts": "8.0",
+        "gust_kts": "10.0",
         "dir_deg": 22,
         "dir_cardinal": "NNE"
       },
       {
         "name": "Wattamolla",
         "speed_kts": "9.0",
-        "gust_kts": "13.0",
+        "gust_kts": "10.0",
         "dir_deg": 0,
         "dir_cardinal": "N"
       },
       {
         "name": "Bellambi",
-        "speed_kts": "7.0",
-        "gust_kts": "9.0",
+        "speed_kts": "10.0",
+        "gust_kts": "12.0",
         "dir_deg": 338,
         "dir_cardinal": "NNW"
       }
     ],
     "swell": {
       "name": "Botany Offshore",
-      "hs_m": "--",
-      "hmax_m": "--",
-      "tp_s": "--",
-      "dir_deg": "--",
-      "dir_cardinal": "--"
+      "hs_m": "1.36",
+      "hmax_m": "2.27",
+      "tp_s": "8.9",
+      "dir_deg": 147,
+      "dir_cardinal": "SSE"
     }
   }
 }
