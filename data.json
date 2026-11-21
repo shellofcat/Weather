@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-22T05:02:02.209119+11:00",
-  "updated_display": "5:02 AM AEDT",
+  "updated_iso": "2026-11-22T05:54:26.398955+11:00",
+  "updated_display": "5:54 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "1.50",
-    "botany_live_m": "1.50",
+    "sydney_live_m": "1.59",
+    "botany_live_m": "1.59",
     "events": [
       {
         "type": "H",
@@ -23,8 +23,8 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "7.0",
-        "gust_kts": "9.0",
+        "speed_kts": "5.0",
+        "gust_kts": "5.0",
         "dir_deg": 0,
         "dir_cardinal": "N"
       },
@@ -37,15 +37,15 @@
       },
       {
         "name": "North Head",
-        "speed_kts": "8.0",
-        "gust_kts": "10.0",
+        "speed_kts": "7.0",
+        "gust_kts": "9.0",
         "dir_deg": 0,
         "dir_cardinal": "N"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "2.0",
-        "gust_kts": "2.0",
+        "speed_kts": "1.0",
+        "gust_kts": "1.0",
         "dir_deg": 338,
         "dir_cardinal": "NNW"
       }
@@ -64,40 +64,40 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "7.0",
-        "gust_kts": "9.0",
-        "dir_deg": 22,
-        "dir_cardinal": "NNE"
-      },
-      {
-        "name": "Airport",
-        "speed_kts": "5.0",
-        "gust_kts": "6.0",
+        "speed_kts": "4.0",
+        "gust_kts": "5.0",
         "dir_deg": 338,
         "dir_cardinal": "NNW"
       },
       {
-        "name": "Wattamolla",
-        "speed_kts": "2.0",
+        "name": "Airport",
+        "speed_kts": "1.0",
         "gust_kts": "4.0",
-        "dir_deg": 0,
-        "dir_cardinal": "N"
+        "dir_deg": 292,
+        "dir_cardinal": "WNW"
+      },
+      {
+        "name": "Wattamolla",
+        "speed_kts": "4.0",
+        "gust_kts": "5.0",
+        "dir_deg": 338,
+        "dir_cardinal": "NNW"
       },
       {
         "name": "Bellambi",
-        "speed_kts": "4.0",
-        "gust_kts": "5.0",
-        "dir_deg": 158,
-        "dir_cardinal": "SSE"
+        "speed_kts": "0.0",
+        "gust_kts": "0.0",
+        "dir_deg": "--",
+        "dir_cardinal": "--"
       }
     ],
     "swell": {
       "name": "Botany Offshore",
-      "hs_m": "1.24",
-      "hmax_m": "2.07",
-      "tp_s": "7.5",
-      "dir_deg": 83,
-      "dir_cardinal": "E"
+      "hs_m": "--",
+      "hmax_m": "--",
+      "tp_s": "--",
+      "dir_deg": "--",
+      "dir_cardinal": "--"
     }
   }
 }
