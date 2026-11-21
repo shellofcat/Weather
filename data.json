@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-22T03:27:45.121121+11:00",
-  "updated_display": "3:27 AM AEDT",
+  "updated_iso": "2026-11-22T04:20:18.097593+11:00",
+  "updated_display": "4:20 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "1.05",
-    "botany_live_m": "1.05",
+    "sydney_live_m": "1.34",
+    "botany_live_m": "1.34",
     "events": [
       {
         "type": "H",
@@ -23,10 +23,10 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "7.0",
-        "gust_kts": "9.0",
-        "dir_deg": 45,
-        "dir_cardinal": "NE"
+        "speed_kts": "6.0",
+        "gust_kts": "7.0",
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       },
       {
         "name": "Fort Denison",
@@ -39,22 +39,22 @@
         "name": "North Head",
         "speed_kts": "7.0",
         "gust_kts": "9.0",
-        "dir_deg": 22,
-        "dir_cardinal": "NNE"
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "6.0",
-        "gust_kts": "6.0",
-        "dir_deg": 112,
-        "dir_cardinal": "ESE"
+        "speed_kts": "2.0",
+        "gust_kts": "2.0",
+        "dir_deg": 22,
+        "dir_cardinal": "NNE"
       }
     ],
     "swell": {
       "name": "Sydney Offshore (Long Reef)",
       "hs_m": "1.12",
       "hmax_m": "1.87",
-      "tp_s": "6.9",
+      "tp_s": "7.0",
       "dir_deg": 75,
       "dir_cardinal": "ENE"
     }
@@ -71,22 +71,22 @@
       },
       {
         "name": "Airport",
-        "speed_kts": "5.0",
-        "gust_kts": "7.0",
-        "dir_deg": 45,
-        "dir_cardinal": "NE"
+        "speed_kts": "7.0",
+        "gust_kts": "8.0",
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       },
       {
         "name": "Wattamolla",
-        "speed_kts": "5.0",
-        "gust_kts": "6.0",
+        "speed_kts": "6.0",
+        "gust_kts": "8.0",
         "dir_deg": 0,
         "dir_cardinal": "N"
       },
       {
         "name": "Bellambi",
-        "speed_kts": "1.0",
-        "gust_kts": "3.0",
+        "speed_kts": "5.0",
+        "gust_kts": "5.0",
         "dir_deg": 158,
         "dir_cardinal": "SSE"
       }
