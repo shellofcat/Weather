@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-24T06:38:17.747574+11:00",
-  "updated_display": "6:38 AM AEDT",
+  "updated_iso": "2026-11-24T07:32:46.633839+11:00",
+  "updated_display": "7:32 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "1.73",
-    "botany_live_m": "1.73",
+    "sydney_live_m": "1.85",
+    "botany_live_m": "1.85",
     "events": [
       {
         "type": "H",
@@ -23,39 +23,39 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "15.0",
+        "speed_kts": "16.0",
         "gust_kts": "21.0",
         "dir_deg": 202,
         "dir_cardinal": "SSW"
       },
       {
         "name": "Fort Denison",
-        "speed_kts": "5.0",
-        "gust_kts": "9.0",
+        "speed_kts": "6.0",
+        "gust_kts": "10.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       },
       {
         "name": "North Head",
-        "speed_kts": "14.0",
-        "gust_kts": "22.0",
+        "speed_kts": "15.0",
+        "gust_kts": "21.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "9.0",
-        "gust_kts": "9.0",
+        "speed_kts": "10.0",
+        "gust_kts": "10.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       }
     ],
     "swell": {
       "name": "Sydney Offshore (Long Reef)",
-      "hs_m": "1.22",
-      "hmax_m": "2.04",
+      "hs_m": "1.24",
+      "hmax_m": "2.07",
       "tp_s": "6.0",
-      "dir_deg": 108,
+      "dir_deg": 113,
       "dir_cardinal": "ESE"
     }
   },
@@ -64,22 +64,22 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "18.0",
-        "gust_kts": "26.0",
+        "speed_kts": "16.0",
+        "gust_kts": "23.0",
         "dir_deg": 202,
         "dir_cardinal": "SSW"
       },
       {
         "name": "Airport",
-        "speed_kts": "17.0",
-        "gust_kts": "22.0",
+        "speed_kts": "18.0",
+        "gust_kts": "23.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       },
       {
         "name": "Wattamolla",
-        "speed_kts": "23.0",
-        "gust_kts": "27.0",
+        "speed_kts": "19.0",
+        "gust_kts": "26.0",
         "dir_deg": 180,
         "dir_cardinal": "S"
       },
