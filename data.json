@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-26T04:44:54.972552+11:00",
-  "updated_display": "4:44 AM AEDT",
+  "updated_iso": "2026-11-26T05:33:30.631004+11:00",
+  "updated_display": "5:33 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "0.65",
-    "botany_live_m": "0.65",
+    "sydney_live_m": "0.95",
+    "botany_live_m": "0.95",
     "events": [
       {
         "type": "H",
@@ -23,8 +23,8 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "4.0",
-        "gust_kts": "6.0",
+        "speed_kts": "3.0",
+        "gust_kts": "5.0",
         "dir_deg": 338,
         "dir_cardinal": "NNW"
       },
@@ -37,15 +37,15 @@
       },
       {
         "name": "North Head",
-        "speed_kts": "5.0",
-        "gust_kts": "8.0",
-        "dir_deg": 22,
-        "dir_cardinal": "NNE"
+        "speed_kts": "4.0",
+        "gust_kts": "7.0",
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "5.0",
-        "gust_kts": "5.0",
+        "speed_kts": "6.0",
+        "gust_kts": "6.0",
         "dir_deg": 292,
         "dir_cardinal": "WNW"
       }
@@ -64,10 +64,10 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "4.0",
-        "gust_kts": "5.0",
-        "dir_deg": 248,
-        "dir_cardinal": "WSW"
+        "speed_kts": "5.0",
+        "gust_kts": "6.0",
+        "dir_deg": 292,
+        "dir_cardinal": "WNW"
       },
       {
         "name": "Airport",
@@ -85,10 +85,10 @@
       },
       {
         "name": "Bellambi",
-        "speed_kts": "7.0",
-        "gust_kts": "10.0",
-        "dir_deg": 315,
-        "dir_cardinal": "NW"
+        "speed_kts": "6.0",
+        "gust_kts": "7.0",
+        "dir_deg": 292,
+        "dir_cardinal": "WNW"
       }
     ],
     "swell": {
