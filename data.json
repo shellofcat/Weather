@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-27T02:35:40.511672+11:00",
-  "updated_display": "2:35 AM AEDT",
+  "updated_iso": "2026-11-27T03:41:45.008567+11:00",
+  "updated_display": "3:41 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "0.46",
-    "botany_live_m": "0.46",
+    "sydney_live_m": "0.37",
+    "botany_live_m": "0.37",
     "events": [
       {
         "type": "L",
@@ -23,10 +23,10 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "9.0",
-        "gust_kts": "11.0",
-        "dir_deg": 45,
-        "dir_cardinal": "NE"
+        "speed_kts": "7.0",
+        "gust_kts": "8.0",
+        "dir_deg": 22,
+        "dir_cardinal": "NNE"
       },
       {
         "name": "Fort Denison",
@@ -37,23 +37,23 @@
       },
       {
         "name": "North Head",
-        "speed_kts": "8.0",
-        "gust_kts": "11.0",
+        "speed_kts": "6.0",
+        "gust_kts": "8.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "5.0",
-        "gust_kts": "5.0",
-        "dir_deg": 68,
-        "dir_cardinal": "ENE"
+        "speed_kts": "3.0",
+        "gust_kts": "3.0",
+        "dir_deg": 45,
+        "dir_cardinal": "NE"
       }
     ],
     "swell": {
       "name": "Sydney Offshore (Long Reef)",
-      "hs_m": "1.00",
-      "hmax_m": "1.67",
+      "hs_m": "1.02",
+      "hmax_m": "1.70",
       "tp_s": "7.5",
       "dir_deg": 95,
       "dir_cardinal": "E"
@@ -65,13 +65,13 @@
       {
         "name": "Kurnell",
         "speed_kts": "6.0",
-        "gust_kts": "7.0",
-        "dir_deg": 90,
-        "dir_cardinal": "E"
+        "gust_kts": "8.0",
+        "dir_deg": 68,
+        "dir_cardinal": "ENE"
       },
       {
         "name": "Airport",
-        "speed_kts": "6.0",
+        "speed_kts": "7.0",
         "gust_kts": "8.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
@@ -85,10 +85,10 @@
       },
       {
         "name": "Bellambi",
-        "speed_kts": "6.0",
-        "gust_kts": "8.0",
-        "dir_deg": 338,
-        "dir_cardinal": "NNW"
+        "speed_kts": "9.0",
+        "gust_kts": "10.0",
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       }
     ],
     "swell": {
