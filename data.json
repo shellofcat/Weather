@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-26T13:51:19.783966+11:00",
-  "updated_display": "1:51 PM AEDT",
+  "updated_iso": "2026-11-26T14:52:48.283656+11:00",
+  "updated_display": "2:52 PM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "0.62",
-    "botany_live_m": "0.62",
+    "sydney_live_m": "0.31",
+    "botany_live_m": "0.31",
     "events": [
       {
         "type": "L",
@@ -23,29 +23,29 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "9.0",
-        "gust_kts": "11.0",
+        "speed_kts": "12.0",
+        "gust_kts": "14.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       },
       {
         "name": "Fort Denison",
-        "speed_kts": "6.0",
+        "speed_kts": "7.0",
         "gust_kts": "11.0",
         "dir_deg": 90,
         "dir_cardinal": "E"
       },
       {
         "name": "North Head",
-        "speed_kts": "6.0",
-        "gust_kts": "9.0",
+        "speed_kts": "9.0",
+        "gust_kts": "13.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "10.0",
-        "gust_kts": "10.0",
+        "speed_kts": "11.0",
+        "gust_kts": "11.0",
         "dir_deg": 90,
         "dir_cardinal": "E"
       }
@@ -64,31 +64,31 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "11.0",
-        "gust_kts": "14.0",
+        "speed_kts": "13.0",
+        "gust_kts": "16.0",
         "dir_deg": 90,
         "dir_cardinal": "E"
       },
       {
         "name": "Airport",
         "speed_kts": "13.0",
-        "gust_kts": "17.0",
+        "gust_kts": "18.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       },
       {
         "name": "Wattamolla",
-        "speed_kts": "9.0",
-        "gust_kts": "12.0",
+        "speed_kts": "11.0",
+        "gust_kts": "14.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       },
       {
         "name": "Bellambi",
-        "speed_kts": "13.0",
-        "gust_kts": "15.0",
-        "dir_deg": 22,
-        "dir_cardinal": "NNE"
+        "speed_kts": "8.0",
+        "gust_kts": "12.0",
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       }
     ],
     "swell": {
