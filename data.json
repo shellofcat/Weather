@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-28T02:43:43.646158+11:00",
-  "updated_display": "2:43 AM AEDT",
+  "updated_iso": "2026-11-28T03:50:29.762483+11:00",
+  "updated_display": "3:50 AM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "0.74",
-    "botany_live_m": "0.74",
+    "sydney_live_m": "0.55",
+    "botany_live_m": "0.55",
     "events": [
       {
         "type": "L",
@@ -30,22 +30,22 @@
       },
       {
         "name": "Fort Denison",
-        "speed_kts": "0.0",
-        "gust_kts": "3.0",
-        "dir_deg": "--",
-        "dir_cardinal": "--"
+        "speed_kts": "3.0",
+        "gust_kts": "5.0",
+        "dir_deg": 45,
+        "dir_cardinal": "NE"
       },
       {
         "name": "North Head",
-        "speed_kts": "9.0",
-        "gust_kts": "14.0",
+        "speed_kts": "10.0",
+        "gust_kts": "15.0",
         "dir_deg": 22,
         "dir_cardinal": "NNE"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "12.0",
-        "gust_kts": "12.0",
+        "speed_kts": "11.0",
+        "gust_kts": "11.0",
         "dir_deg": 22,
         "dir_cardinal": "NNE"
       }
@@ -55,7 +55,7 @@
       "hs_m": "1.46",
       "hmax_m": "2.44",
       "tp_s": "6.3",
-      "dir_deg": 73,
+      "dir_deg": 72,
       "dir_cardinal": "ENE"
     }
   },
@@ -64,29 +64,29 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "15.0",
-        "gust_kts": "19.0",
+        "speed_kts": "14.0",
+        "gust_kts": "17.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       },
       {
         "name": "Airport",
         "speed_kts": "15.0",
-        "gust_kts": "18.0",
+        "gust_kts": "19.0",
         "dir_deg": 22,
         "dir_cardinal": "NNE"
       },
       {
         "name": "Wattamolla",
         "speed_kts": "12.0",
-        "gust_kts": "18.0",
-        "dir_deg": 22,
-        "dir_cardinal": "NNE"
+        "gust_kts": "17.0",
+        "dir_deg": 0,
+        "dir_cardinal": "N"
       },
       {
         "name": "Bellambi",
-        "speed_kts": "13.0",
-        "gust_kts": "16.0",
+        "speed_kts": "11.0",
+        "gust_kts": "13.0",
         "dir_deg": 0,
         "dir_cardinal": "N"
       }
