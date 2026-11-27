@@ -1,10 +1,10 @@
 {
-  "updated_iso": "2026-11-27T21:15:44.731980+11:00",
-  "updated_display": "9:15 PM AEDT",
+  "updated_iso": "2026-11-27T22:15:42.211980+11:00",
+  "updated_display": "10:15 PM AEDT",
   "timezone": "AEDT",
   "tides": {
-    "sydney_live_m": "1.00",
-    "botany_live_m": "1.00",
+    "sydney_live_m": "1.20",
+    "botany_live_m": "1.20",
     "events": [
       {
         "type": "H",
@@ -23,7 +23,7 @@
     "winds": [
       {
         "name": "W Wedding Cake",
-        "speed_kts": "20.0",
+        "speed_kts": "18.0",
         "gust_kts": "23.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
@@ -38,25 +38,25 @@
       {
         "name": "North Head",
         "speed_kts": "15.0",
-        "gust_kts": "22.0",
+        "gust_kts": "20.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       },
       {
         "name": "Obs Hill",
-        "speed_kts": "11.0",
-        "gust_kts": "11.0",
+        "speed_kts": "10.0",
+        "gust_kts": "10.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       }
     ],
     "swell": {
       "name": "Sydney Offshore (Long Reef)",
-      "hs_m": "1.40",
-      "hmax_m": "2.34",
+      "hs_m": "1.44",
+      "hmax_m": "2.40",
       "tp_s": "6.2",
-      "dir_deg": 79,
-      "dir_cardinal": "E"
+      "dir_deg": 77,
+      "dir_cardinal": "ENE"
     }
   },
   "botany": {
@@ -64,28 +64,28 @@
     "winds": [
       {
         "name": "Kurnell",
-        "speed_kts": "18.0",
-        "gust_kts": "22.0",
+        "speed_kts": "16.0",
+        "gust_kts": "19.0",
         "dir_deg": 68,
         "dir_cardinal": "ENE"
       },
       {
         "name": "Airport",
-        "speed_kts": "17.0",
-        "gust_kts": "22.0",
+        "speed_kts": "16.0",
+        "gust_kts": "21.0",
         "dir_deg": 45,
         "dir_cardinal": "NE"
       },
       {
         "name": "Wattamolla",
-        "speed_kts": "10.0",
-        "gust_kts": "16.0",
+        "speed_kts": "12.0",
+        "gust_kts": "18.0",
         "dir_deg": 22,
         "dir_cardinal": "NNE"
       },
       {
         "name": "Bellambi",
-        "speed_kts": "13.0",
+        "speed_kts": "12.0",
         "gust_kts": "15.0",
         "dir_deg": 0,
         "dir_cardinal": "N"
@@ -93,11 +93,11 @@
     ],
     "swell": {
       "name": "Botany Offshore",
-      "hs_m": "--",
-      "hmax_m": "--",
-      "tp_s": "--",
-      "dir_deg": "--",
-      "dir_cardinal": "--"
+      "hs_m": "1.56",
+      "hmax_m": "2.61",
+      "tp_s": "6.4",
+      "dir_deg": 80,
+      "dir_cardinal": "E"
     }
   }
 }
